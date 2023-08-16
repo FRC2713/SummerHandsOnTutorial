@@ -1,4 +1,4 @@
-package frc.robot;
+package frc.robot.subsystems;
 
 import com.ctre.phoenix.sensors.Pigeon2;
 
@@ -10,6 +10,10 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.subsystems.gyros.SwerveGyroIO;
+import frc.robot.subsystems.modules.ModuleInfo;
+import frc.robot.subsystems.modules.SwerveModule;
+import frc.robot.subsystems.modules.SwerveModuleIO;
 
 public class SwerveSubsystem extends SubsystemBase {
     
@@ -18,7 +22,21 @@ public class SwerveSubsystem extends SubsystemBase {
     SwerveModule backLeft;
     SwerveModule backRight;
 
-    Pigeon2 gyro;
+    SwerveGyroIO gyroIO;
+
+    public SwerveSubsystem(
+        SwerveGyroIO gyroIO,
+        SwerveModuleIO frontLeft,
+        SwerveModuleIO frontRight,
+        SwerveModuleIO backLeft,
+        SwerveModuleIO backRight) {
+            this.gyroIO = gyroIO;
+            this.frontLeft = new SwerveModule(frontLeft, new ModuleInfo("FrontLeft", FRONT_LEFT_LOC));
+            this.frontLeft = new SwerveModule(frontLeft, new ModuleInfo("FrontLeft", FRONT_LEFT_LOC));
+            this.frontLeft = new SwerveModule(frontLeft, new ModuleInfo("FrontLeft", FRONT_LEFT_LOC));
+            this.frontLeft = new SwerveModule(frontLeft, new ModuleInfo("FrontLeft", FRONT_LEFT_LOC));
+        }
+
 
     final double MAX_VELOCITY = 16.0; // feet per sec
     final double MAX_ANGULAR_VELOCITY = Units.degreesToRadians(275);
