@@ -11,6 +11,12 @@ import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
+
+// Object Oriented Programming
+// an interface -- 
+//      a contract that says "anything that implements me agrees to have this functionality"
+
+
 public class SwerveSubsystem extends SubsystemBase {
     
     SwerveModule frontLeft;

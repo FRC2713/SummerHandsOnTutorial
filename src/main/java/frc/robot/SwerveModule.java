@@ -23,11 +23,7 @@ public class SwerveModule {
   private static final double kModuleMaxAngularAcceleration =
       2 * Math.PI; // radians per second squared
 
-  private final MotorController m_driveMotor;
-  private final MotorController m_turningMotor;
-
-  private final Encoder m_driveEncoder;
-  private final Encoder m_turningEncoder;
+  private static final ModuleIOAutoLogged io;
 
   // Gains are for example purposes only - must be determined for your own robot!
   private final PIDController m_drivePIDController = new PIDController(1, 0, 0);
