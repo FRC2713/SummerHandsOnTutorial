@@ -14,13 +14,19 @@ public interface ModuleIO {
     public class ModuleInputs {
         public double driveVoltage = 0.0;
         public double driveCurrent = 0.0;
+        public double drivePositionMeters = 0.0;
 
         public double azimuthVoltage = 0.0;
         public double azimuthCurrent = 0.0;
+        public double azimuthPositionDegrees = 0.0;
     }
 
     // "contract starts here"
 
-    void setDesiredState(SwerveModuleState desiredState);
+    void updateInputs(ModuleInputs inputs);
+
+    void setDriveVoltage(double volts);
+
+    void setTurnVoltage(double volts);
 
 }

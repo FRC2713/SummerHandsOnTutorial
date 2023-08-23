@@ -6,11 +6,27 @@ package frc.robot;
 
 import org.littletonrobotics.junction.LoggedRobot;
 
-import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.modules.ModuleRealIO;
+import frc.robot.modules.ModuleSimIO;
 
 public class Robot extends LoggedRobot {
-  private final XboxController m_controller = new XboxController(0);
-  
+  public static final XboxController joysticks = new XboxController(0);
+
+
+  public static boolean isSimulation = true;
+
+  public static SwerveSubsystem drivetrain;
+
+  public void robotInit() {
+    if (isSimulation) {
+      drivetrain = new SwerveSubsystem(new ModuleSimIO(), new ModuleSimIO(), new ModuleSimIO(), new ModuleSimIO());
+    } else {
+      // drivetrain = new SwerveSubsystem(
+      //   new ModuleRealIO(0, 0, 0, 0, 0, 0), 
+      //   new ModuleRealIO(0, 0, 0, 0, 0, 0), 
+      //   new ModuleRealIO(0, 0, 0, 0, 0, 0), 
+      //   new ModuleRealIO(0, 0, 0, 0, 0, 0));
+    }
+  }  
 }
